@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            border: 1px solid;
+            border-radius: 3px;
+            width:80px;
+            height:30px;
+            
+        }
+        .list{
+            height:500px;
+            width:300px;
+        }
+        .todo{
+            position: absolute;
+            top:30%;
+            left: 40%;
+        }
+        .list{
+            list-style: none;
+            size:20px;
+        }
+        .done{
+            text-decoration: line-through;
+        }
+        .mystyle{
+            font-size:20px;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo">
+        <label for="task">task</label>
+        <input type="text" id="task" name="task" placeholder="todo">
+
+        <label for="filter">filter</label>
+        <input type="text" id="filter" name="filter" placeholder="search">
+
+        <button class="btn">add</button>
+
+        <ul class="list">
+        </ul>
+    </div>
+        
+
+    <script>
+        let task = document.querySelector("#task");
+        let btn=document.querySelector(".btn");
+        
+        btn.addEventListener("click", function(){
+
+            let tagLi = document.createElement("li");
+            tagLi.className += "listLi";
+            let text = document.createTextNode(task.value);
+            tagLi.appendChild(text);
+
+            if (task.value!=''){
+
+                let del = document.createElement("span");
+                del.className += "spanx";
+                del.appendChild(document.createTextNode(" x"));
+                
+                
+                del.className = "mystyle";
+                
+                tagLi.appendChild(del);
+                document.querySelector(".list").appendChild(tagLi);
+                
+                task.value='';
+
+                del.addEventListener("click", function(){
+                    document.querySelector(".list").removeChild(tagLi);
+                })
+                tagLi.addEventListener("click", function(){
+                    tagLi.classList.toggle('done');
+                })
+            }
+        })
+        
+    </script>
+</body>
+</html>

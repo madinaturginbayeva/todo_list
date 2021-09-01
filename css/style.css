@@ -1,0 +1,25 @@
+.slider{
+    height:100px;
+    width: 300px;
+    background-color: red;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.block{
+    width: 300px;
+    height: 100px;
+    display: inline-block;
+    transition: all 2s;
+}
+.block:nth-child(1){
+    background-color: blue;
+}
+.block:nth-child(2){
+    background-color: yellow;
+}
+.block:nth-child(3){
+    background-color: green;
+}
+.block:nth-child(4){
+    background-color: grey;
+}
